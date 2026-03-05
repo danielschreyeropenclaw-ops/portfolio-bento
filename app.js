@@ -1,24 +1,22 @@
-// Fan cards: hover brings to front, release sends to back
-const cards = document.querySelectorAll('.ec');
-const defaultZ = { 'dark': 1, 'teal': 2, 'purple': 3 };
+// Fan cards: hover brings card to front, others step back
+const fan = document.querySelector('.exp-fan');
+const cards = fan ? fan.querySelectorAll('.ec') : [];
+const baseZ = {'ec-purple': 3, 'ec-teal': 2, 'ec-dark': 1};
 
 cards.forEach(card => {
+  const key = [...card.classList].find(c => c.startsWith('ec-'));
+
   card.addEventListener('mouseenter', () => {
-    // Push others back
     cards.forEach(other => {
-      if (other !== card) {
-        other.style.zIndex = '0';
-        other.style.opacity = '0.75';
-      }
+      const k = [...other.classList].find(c => c.startsWith('ec-'));
+      other.style.zIndex = other === card ? 10 : baseZ[k];
     });
   });
 
   card.addEventListener('mouseleave', () => {
-    // Restore original z-index and opacity for all
     cards.forEach(other => {
-      const label = other.dataset.label;
-      other.style.zIndex = defaultZ[label];
-      other.style.opacity = '1';
+      const k = [...other.classList].find(c => c.startsWith('ec-'));
+      other.style.zIndex = baseZ[k];
     });
   });
 });
