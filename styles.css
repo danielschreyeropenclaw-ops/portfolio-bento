@@ -91,11 +91,11 @@ h1 { line-height: .95; }
 ══════════════════════════════════════════════════ */
 .bento-page { padding: 36px 0 60px; background: var(--bg); }
 
-/* Flexbox layout — no grid span issues */
-.bento { display: flex; gap: var(--gap); align-items: stretch; }
+/* Single-column vertical stack */
+.bento { display: flex; flex-direction: column; gap: var(--gap); }
 
-.col-left { display: flex; flex: 1; }
-.col-right { display: flex; flex-direction: column; flex: 1; gap: var(--gap); }
+.col-left { display: flex; }
+.col-right { display: flex; flex-direction: column; gap: var(--gap); }
 
 .card {
   background: var(--card);
@@ -105,7 +105,8 @@ h1 { line-height: .95; }
 
 /* BIO CARD */
 .bio-card {
-  flex: 1; /* fills full col-left height */
+  flex: 1;
+  width: 100%;
   padding: 28px 24px 24px;
   display: flex;
   flex-direction: column;
