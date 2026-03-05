@@ -1,21 +1,18 @@
-// Fan cards: hover brings card to front, others step back
-const fan = document.querySelector('.exp-fan');
-const cards = fan ? fan.querySelectorAll('.ec') : [];
-const baseZ = {'ec-purple': 3, 'ec-teal': 2, 'ec-dark': 1};
+const baseZ = { 'fc-front': 3, 'fc-mid': 2, 'fc-back': 1 };
 
-cards.forEach(card => {
-  const key = [...card.classList].find(c => c.startsWith('ec-'));
+document.querySelectorAll('.fc').forEach(card => {
+  const key = [...card.classList].find(c => baseZ[c]);
 
   card.addEventListener('mouseenter', () => {
-    cards.forEach(other => {
-      const k = [...other.classList].find(c => c.startsWith('ec-'));
+    document.querySelectorAll('.fc').forEach(other => {
+      const k = [...other.classList].find(c => baseZ[c]);
       other.style.zIndex = other === card ? 10 : baseZ[k];
     });
   });
 
   card.addEventListener('mouseleave', () => {
-    cards.forEach(other => {
-      const k = [...other.classList].find(c => c.startsWith('ec-'));
+    document.querySelectorAll('.fc').forEach(other => {
+      const k = [...other.classList].find(c => baseZ[c]);
       other.style.zIndex = baseZ[k];
     });
   });
