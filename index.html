@@ -6,112 +6,140 @@
   <title>Dummy Name — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <div class="page">
-    <div class="bento">
 
-      <!-- COL 1: BIO CARD (spans both rows) -->
+  <!-- ═══════════════════════════════════════
+       PAGE 1 — HERO
+  ═══════════════════════════════════════ -->
+  <div class="hero-page">
+    <header class="topbar">
+      <div class="wrap nav">
+        <a class="site-name" href="#">Dummy Name</a>
+        <a class="resume-btn" href="#">↓ Resume</a>
+      </div>
+    </header>
+
+    <main class="hero-body wrap">
+      <!--
+        TEXT EDIT GUIDE:
+        • Normal lines  → <span class="line">your text</span>
+        • Italic accent → <span class="line accent">your text</span>
+      -->
+      <h1>
+        <span class="line">Let's build something</span>
+        <span class="line accent">remarkable</span>
+        <span class="line">together</span>
+      </h1>
+
+      <div class="hero-img-slot">
+        <div class="img-ring"></div>
+        <div class="img-box">IMG</div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       PAGE 2 — BENTO GRID
+  ═══════════════════════════════════════ -->
+  <div class="bento-page">
+    <div class="wrap bento">
+
+      <!-- LEFT: bio card, spans both rows -->
       <div class="card bio-card">
         <p class="bio-text">
           Hi, I'm <strong>Dummy Name.</strong><br>
           a Dummy Role with 7+<br>
-          years of experience, currently<br>
-          building high-impact<br>
-          products @DummyCompany.
+          years of experience,<br>
+          currently building<br>
+          high-impact products<br>
+          @DummyCompany.
         </p>
         <div class="socials">
-          <a href="#" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <!-- LinkedIn -->
+          <a href="#" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
-          <a href="#" aria-label="Dribbble">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+          <!-- Dribbble -->
+          <a href="#" title="Dribbble">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
           </a>
-          <a href="#" aria-label="Medium">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          <!-- Medium -->
+          <a href="#" title="Medium">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
           </a>
         </div>
       </div>
 
-      <!-- COL 2 ROW 1: FAN CARDS -->
+      <!-- RIGHT TOP: fan experience cards -->
       <div class="card exp-card">
-        <div class="exp-fan">
-          <!-- Back (dark) -->
-          <div class="ec ec-dark" data-idx="0">
-            <span class="company">@DummyCompany</span>
-            <span class="arrow">↗</span>
+        <div class="fan">
+          <div class="fc fc-back" data-z="1">
+            <span class="fc-co">@DummyCompany</span>
+            <span class="fc-arrow">↗</span>
           </div>
-          <!-- Middle (teal) -->
-          <div class="ec ec-teal" data-idx="1">
-            <div class="edu-label">Bachelors in</div>
-            <div class="edu-sub">Dummy Field —<br>Applied Science</div>
+          <div class="fc fc-mid" data-z="2">
+            <span class="fc-sub">Bachelors in</span>
+            <span class="fc-main">Dummy Field —<br>Applied Science</span>
           </div>
-          <!-- Front (purple) -->
-          <div class="ec ec-purple" data-idx="2">
-            <div class="big-num">7+</div>
-            <div class="years-label">Years of<br>experience</div>
+          <div class="fc fc-front" data-z="3">
+            <span class="fc-num">7+</span>
+            <span class="fc-sub">Years of<br>experience</span>
           </div>
         </div>
       </div>
 
-      <!-- COL 2 ROW 2: PHOTO + STACK -->
+      <!-- RIGHT BOTTOM: photo + stack -->
       <div class="bottom-row">
 
-        <!-- Photo / rotating ring -->
         <div class="card photo-card">
-          <div class="watermark" aria-hidden="true">
-            <span>CONTENT</span>
-            <span>PROBLEM</span>
-            <span>STRATEGY</span>
-            <span>DESIGN</span>
+          <div class="wm" aria-hidden="true">
+            <span>CONTENT</span><span>PROBLEM</span>
+            <span>STRATEGY</span><span>DESIGN</span>
           </div>
           <div class="ring-wrap">
-            <svg class="ring-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <svg class="ring-svg" viewBox="0 0 200 200">
               <defs>
-                <path id="circ" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1-152,0"/>
+                <path id="c" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1-152,0"/>
               </defs>
-              <text fill="#555e78" font-size="12" font-family="DM Sans,sans-serif" letter-spacing="6">
-                <textPath href="#circ">PROBLEM ★ DESIGN ★ STRATEGY ★ ART ★ CONTENT ★</textPath>
+              <text fill="#3a5c4a" font-size="12.5" font-family="DM Sans,sans-serif" letter-spacing="6.2">
+                <textPath href="#c">PROBLEM ★ DESIGN ★ STRATEGY ★ ART ★ CONTENT ★</textPath>
               </text>
             </svg>
-            <div class="avatar-empty"></div>
+            <div class="avatar"></div>
           </div>
         </div>
 
-        <!-- Tech stack -->
         <div class="card stack-card">
           <p class="stack-title">My Tech Stack</p>
           <div class="tech-grid">
-            <!-- Row 1 -->
             <div class="ti r-icon">R</div>
             <div class="ti py-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">
+              <svg viewBox="0 0 24 24" width="22" height="22">
                 <path fill="#4B8BBE" d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969c0 6.18 3.403 5.959 3.403 5.959h2.031v-2.867s-.109-3.402 3.343-3.402h5.762s3.236.052 3.236-3.127V3.127S18.28 0 11.914 0zm-3.2 1.809a1.017 1.017 0 1 1 0 2.035 1.017 1.017 0 0 1 0-2.035z"/>
                 <path fill="#FFD43B" d="M12.087 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.752H12v-.826h8.121S24 18.211 24 12.031c0-6.18-3.403-5.959-3.403-5.959H18.566v2.867s.109 3.402-3.343 3.402H9.461s-3.236-.052-3.236 3.127v5.405S5.72 24 12.087 24zm3.2-1.809a1.017 1.017 0 1 1 0-2.035 1.017 1.017 0 0 1 0 2.035z"/>
               </svg>
             </div>
             <div class="ti bc-icon">Bc</div>
-            <!-- Row 2 -->
             <div class="ti nf-icon">
-              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+              <svg viewBox="0 0 100 100" width="22" height="22">
                 <circle cx="50" cy="50" r="50" fill="#0DC09D"/>
                 <path d="M28 72V28l44 44V28" stroke="white" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <div class="ti nc-icon">nf&#8209;core</div>
             <div class="ti gh-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20">
-                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
             </div>
           </div>
         </div>
 
       </div><!-- /bottom-row -->
     </div><!-- /bento -->
-  </div>
+  </div><!-- /bento-page -->
+
   <script src="app.js"></script>
 </body>
 </html>

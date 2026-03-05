@@ -1,33 +1,138 @@
+/* ── DESIGN TOKENS ─────────────────────────────────── */
 :root {
-  --bg:     #191b28;
-  --card:   #1f2235;
-  --card2:  #191c2c;
-  --border: #272d42;
-  --text:   #edf0f7;
-  --muted:  #5a6178;
-  --gap:    10px;
-  --r:      20px;
+  --bg:        #111520;
+  --bg2:       #161b28;
+  --card:      #1a2030;
+  --card-alt:  #151c2a;
+  --border:    #222d40;
+  --green:     #3ddc97;
+  --green-dim: #2ab87a;
+  --green-soft:#a8f0ce;
+  --text:      #e8edf5;
+  --muted:     #5a6a80;
+  --gap:       10px;
+  --r:         20px;
 }
 
+/* ── RESET ──────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: "DM Sans", sans-serif;
   background: var(--bg);
   color: var(--text);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 28px 16px;
 }
 
-.page { width: min(900px, 100%); }
+.wrap { width: min(920px, 92%); margin: 0 auto; }
 
-/* ─── BENTO GRID ─────────────────────────────────── */
+/* ════════════════════════════════════════════════════
+   PAGE 1 — HERO
+════════════════════════════════════════════════════ */
+.hero-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse 800px 500px at 70% 30%, rgba(61,220,151,.1), transparent 65%),
+    linear-gradient(180deg, var(--bg2), var(--bg));
+}
+
+/* NAV */
+.topbar { padding: 1.8rem 0; }
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-name {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -.01em;
+}
+.resume-btn {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+  border: 1px solid var(--border);
+  padding: .42rem .85rem;
+  border-radius: 999px;
+  transition: color .2s, border-color .2s;
+}
+.resume-btn:hover { color: var(--green-soft); border-color: #2a5040; }
+
+/* HERO BODY */
+.hero-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  gap: 2rem;
+}
+
+h1 { line-height: .95; }
+
+.line {
+  display: block;
+  font-size: clamp(2.6rem, 7.5vw, 5.8rem);
+  font-weight: 800;
+  letter-spacing: -.035em;
+  color: var(--text);
+}
+
+/* Italic green accent word */
+.line.accent {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: -.01em;
+  margin-left: clamp(60px, 18vw, 200px);
+  text-shadow: 0 0 32px rgba(61,220,151,.3);
+}
+
+/* Profile image placeholder */
+.hero-img-slot {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: -10px;
+}
+.img-ring {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #1e3d30, #162a22);
+  border: 1px solid #2a5040;
+  margin-right: -12px;
+  z-index: 0;
+}
+.img-box {
+  width: 82px; height: 82px;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #1b2e25, #131f1a);
+  border: 1px solid #243d30;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: .85rem;
+  z-index: 1;
+}
+
+/* ════════════════════════════════════════════════════
+   PAGE 2 — BENTO
+════════════════════════════════════════════════════ */
+.bento-page {
+  padding: 40px 0 60px;
+  background: var(--bg);
+}
+
+/* GRID */
 .bento {
   display: grid;
-  grid-template-columns: 1fr 1fr;   /* equal halves */
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   gap: var(--gap);
 }
@@ -38,40 +143,34 @@ body {
   border: 1px solid var(--border);
 }
 
-/* ─── BIO CARD (left, spans both rows) ──────────── */
+/* BIO CARD */
 .bio-card {
   grid-column: 1;
   grid-row: 1 / 3;
-  padding: 32px 28px 28px;
+  padding: 30px 26px 26px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 440px;
 }
-
 .bio-text {
-  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
-  line-height: 1.5;
-  color: #dde2f0;
+  font-size: clamp(1.25rem, 2.3vw, 1.7rem);
+  line-height: 1.52;
+  color: #d5dcea;
   font-weight: 400;
 }
-.bio-text strong { font-weight: 700; color: #f0f2f8; }
+.bio-text strong { font-weight: 700; color: var(--text); }
 
-.socials {
-  display: flex;
-  gap: 14px;
-  margin-top: 24px;
-}
+.socials { display: flex; gap: 14px; margin-top: 22px; }
 .socials a {
   color: var(--muted);
   text-decoration: none;
-  display: flex;
-  align-items: center;
+  display: flex; align-items: center;
   transition: color .2s;
 }
-.socials a:hover { color: #9ba8c0; }
+.socials a:hover { color: var(--green-soft); }
 
-/* ─── EXP FAN CARDS (right, row 1) ──────────────── */
+/* FAN CARDS */
 .exp-card {
   grid-column: 2;
   grid-row: 1;
@@ -80,17 +179,16 @@ body {
   overflow: visible;
 }
 
-.exp-fan {
+.fan {
   position: absolute;
   inset: 0;
-  /* cards are absolutely placed inside here */
 }
 
-.ec {
+.fc {
   position: absolute;
   width: 145px;
   height: 118px;
-  border-radius: 18px;
+  border-radius: 17px;
   padding: 14px 13px;
   display: flex;
   flex-direction: column;
@@ -98,54 +196,51 @@ body {
   cursor: pointer;
   transition:
     transform .35s cubic-bezier(.34,1.4,.64,1),
-    box-shadow .3s ease,
-    opacity .25s ease;
-  will-change: transform;
+    box-shadow .3s,
+    opacity .25s;
 }
 
-/* Stacked from left (front) to right (back), matching template */
-.ec-purple {
-  left: 28px; top: 28px;
+/* green-toned fan stack */
+.fc-front {
+  left: 26px; top: 26px;
   transform: rotate(-7deg);
   z-index: 3;
-  background: linear-gradient(145deg, #b575ff, #7c3aed);
-  box-shadow: 0 10px 28px rgba(124,58,237,.4);
+  background: linear-gradient(145deg, #3ddc97, #1a9960);
+  box-shadow: 0 10px 28px rgba(29,153,96,.45);
+  color: #fff;
 }
-.ec-teal {
-  left: 88px; top: 35px;
+.fc-mid {
+  left: 86px; top: 34px;
   transform: rotate(-2deg);
   z-index: 2;
-  background: linear-gradient(145deg, #34c5e8, #0a86aa);
-  box-shadow: 0 8px 22px rgba(10,134,170,.3);
+  background: linear-gradient(145deg, #27b08a, #16705a);
+  box-shadow: 0 8px 22px rgba(22,112,90,.35);
+  color: #fff;
 }
-.ec-dark {
-  left: 148px; top: 42px;
+.fc-back {
+  left: 146px; top: 42px;
   transform: rotate(4deg);
   z-index: 1;
-  background: var(--card2);
-  border: 1px solid var(--border);
-  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+  background: var(--card-alt);
+  border: 1px solid #253040;
+  box-shadow: 0 6px 18px rgba(0,0,0,.4);
+  color: var(--text);
 }
 
-/* Hover: card lifts to front */
-.ec:hover {
+.fc:hover {
   z-index: 10 !important;
-  transform: translateY(-16px) rotate(0deg) scale(1.05) !important;
-  box-shadow: 0 22px 44px rgba(0,0,0,.5) !important;
+  transform: translateY(-18px) rotate(0deg) scale(1.06) !important;
+  box-shadow: 0 24px 48px rgba(0,0,0,.55) !important;
 }
-/* Other cards dim when one is hovered */
-.exp-fan:has(.ec:hover) .ec:not(:hover) {
-  opacity: .6;
-}
+.fan:has(.fc:hover) .fc:not(:hover) { opacity: .55; }
 
-.big-num    { font-size: 2.6rem; font-weight: 800; color: #fff; line-height: 1; }
-.years-label{ font-size: .76rem; color: rgba(255,255,255,.7); line-height: 1.35; }
-.edu-label  { font-size: .75rem; color: rgba(255,255,255,.7); }
-.edu-sub    { font-size: .85rem; font-weight: 600; color: #fff; line-height: 1.3; }
-.company    { font-size: .85rem; color: #aab5cc; font-weight: 500; }
-.arrow      { font-size: 1.3rem; color: #7882a0; align-self: flex-end; }
+.fc-num   { font-size: 2.6rem; font-weight: 800; line-height: 1; color: #fff; }
+.fc-sub   { font-size: .75rem; line-height: 1.35; color: rgba(255,255,255,.75); }
+.fc-main  { font-size: .85rem; font-weight: 600; line-height: 1.3; color: #fff; }
+.fc-co    { font-size: .84rem; font-weight: 500; color: #8fa0b8; }
+.fc-arrow { font-size: 1.3rem; color: #5a7090; align-self: flex-end; }
 
-/* ─── BOTTOM ROW (right, row 2) ──────────────────── */
+/* BOTTOM ROW */
 .bottom-row {
   grid-column: 2;
   grid-row: 2;
@@ -154,83 +249,64 @@ body {
   gap: var(--gap);
 }
 
-/* ─── PHOTO CARD ─────────────────────────────────── */
+/* PHOTO CARD */
 .photo-card {
   position: relative;
   min-height: 210px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   overflow: hidden;
 }
-
-.watermark {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  pointer-events: none;
-  user-select: none;
+.wm {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0; pointer-events: none; user-select: none;
 }
-.watermark span {
-  font-size: clamp(1.4rem, 2.8vw, 2rem);
+.wm span {
+  font-size: clamp(1.3rem, 2.5vw, 1.9rem);
   font-weight: 800;
-  color: rgba(255,255,255,.05);
+  color: rgba(61,220,151,.06);
   letter-spacing: .1em;
   text-transform: uppercase;
   white-space: nowrap;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .ring-wrap {
   position: relative;
-  width: 170px;
-  height: 170px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 172px; height: 172px;
+  display: flex; align-items: center; justify-content: center;
   z-index: 1;
 }
 .ring-svg {
   position: absolute;
-  width: 170px;
-  height: 170px;
-  animation: ring-spin 20s linear infinite;
+  width: 172px; height: 172px;
+  animation: spin 22s linear infinite;
   animation-play-state: paused;
 }
-.photo-card:hover .ring-svg {
-  animation-play-state: running;
-}
-@keyframes ring-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-.avatar-empty {
-  width: 88px;
-  height: 88px;
+.photo-card:hover .ring-svg { animation-play-state: running; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.avatar {
+  width: 90px; height: 90px;
   border-radius: 50%;
-  background: linear-gradient(155deg, #2a3045, #1c2232);
-  border: 2px solid #364055;
+  background: linear-gradient(155deg, #1a2c22, #111c18);
+  border: 2px solid #253828;
   z-index: 2;
 }
 
-/* ─── TECH STACK CARD ────────────────────────────── */
+/* TECH STACK CARD */
 .stack-card {
-  padding: 18px 16px 16px;
+  padding: 18px 16px;
   min-height: 210px;
-  display: flex;
-  flex-direction: column;
+  display: flex; flex-direction: column;
 }
 .stack-title {
   font-size: .9rem;
   font-weight: 500;
-  color: #d8dcee;
+  color: #c5cfdf;
   margin-bottom: 12px;
 }
-
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -238,31 +314,28 @@ body {
   gap: 7px;
   flex: 1;
 }
-
 .ti {
   border-radius: 11px;
-  background: #171a28;
-  border: 1px solid #272d40;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #131825;
+  border: 1px solid #1e2838;
+  display: flex; align-items: center; justify-content: center;
   font-weight: 700;
   cursor: default;
+  min-height: 52px;
   transition: border-color .2s, transform .2s;
-  min-height: 54px;
 }
-.ti:hover {
-  border-color: #44506a;
-  transform: scale(1.07);
-}
+.ti:hover { border-color: #2a5040; transform: scale(1.07); }
 
 .r-icon  { color: #4e90d0; font-size: 1.1rem; }
-.bc-icon { color: #3ecf8e; font-size: .78rem; letter-spacing: .02em; }
-.nc-icon { color: #0DC09D; font-size: .65rem; font-weight: 700; letter-spacing: -.01em; }
+.bc-icon { color: var(--green); font-size: .78rem; letter-spacing: .03em; }
+.nc-icon { color: #0DC09D; font-size: .62rem; font-weight: 700; }
 
-/* ─── RESPONSIVE ─────────────────────────────────── */
+/* ── RESPONSIVE ──────────────────────────────────── */
 @media (max-width: 640px) {
-  .bento          { grid-template-columns: 1fr; }
-  .bio-card       { grid-row: auto; min-height: 260px; }
-  .bottom-row     { grid-template-columns: 1fr; }
+  .bento { grid-template-columns: 1fr; }
+  .bio-card { grid-row: auto; min-height: 260px; }
+  .bottom-row { grid-template-columns: 1fr; }
+  .fc { position: static; transform: none !important; width: 100%; height: auto; margin-bottom: 8px; }
+  .fan { position: static; display: flex; flex-direction: column; padding: 12px; gap: 8px; }
+  .exp-card { overflow: hidden; }
 }
